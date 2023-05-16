@@ -14,17 +14,30 @@ namespace dotnet_rpg.Controllers
             new Character(),
             new Character { Id = 1, Name = "Boba" }
         };
+    private readonly ICharacterService _characterService;
+
+    public CharacterController(ICharacterService characterService)
+        {
+      _characterService = characterService;
+    }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<Character>> Get() 
+        public async Task<ActionResult<List<Character>>> Get() 
         {
-            return Ok(characters);
+            return Ok(await _characterService.GetAllCharacters());
         }
 
         [HttpGet("{Id}")]
-        public ActionResult<Character> GetSingle(int Id) 
+        public async Task<ActionResult<Character>> GetSingle(int Id) 
         {
-            return Ok(characters.FirstOrDefault(c => c.Id == Id));
+            return Ok(await _characterService.GetCharacterById(Id));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<List<Character>>> AddCharacter(Character newCharacter)
+        {
+            return Ok(await _characterService.AddCharacter(newCharacter));
         }
     }
 }
+

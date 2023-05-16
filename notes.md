@@ -37,6 +37,9 @@
 * Then we created a new class called the RPG Class and we used that to create some new RPG Classes (Knight, Mage, Cleric) and we referred to the Knight Class inside of our Character Class File. So our Models are basically setup for now.
 * Now we're going to go over the Controllers
 
+### Controllers
+* We've been going over Controllers. My understanding of Controllers right now is this is where we implement our HTTP Request Methods along with any class specific logic that we need to render for our Application to do what we want it to do. According to what he's explaining right now The Controller code should be pretty simple since it's just specific to our Models right now. But with more complicated Logic that will apply to the whole of our project we're going to want to do that outside of our controllers.
+
 ### Questions
 1. What is .Net used for?
 
